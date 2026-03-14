@@ -518,6 +518,30 @@
   }
 
   /* ═══════════════════════════════════════════
+     갤러리 섹션
+     ═══════════════════════════════════════════ */
+
+  function initGallery(galleryImages) {
+    const container = $('#galleryGrid');
+    const section = $('#gallery');
+    if (!container || !galleryImages.length) {
+      if (section) section.style.display = 'none';
+      return;
+    }
+
+    container.innerHTML = '';
+    galleryImages.forEach((src, i) => {
+      const div = document.createElement('div');
+      div.className = 'gallery__item animate-item';
+      div.setAttribute('data-animate', 'scale-in');
+      div.style.setProperty('--delay', i);
+      div.innerHTML = `<img src="${src}" alt="갤러리 사진 ${i + 1}" loading="lazy">`;
+      div.addEventListener('click', () => openPhotoModal(galleryImages, i));
+      container.appendChild(div);
+    });
+  }
+
+  /* ═══════════════════════════════════════════
      오시는 길 섹션
      ═══════════════════════════════════════════ */
 
@@ -683,11 +707,20 @@
     $('#storyTitle').textContent = CONFIG.story.title;
     $('#storyContent').textContent = CONFIG.story.content;
 
-    // 스토리 이미지 자동 감지
-    const storyImages = await loadImagesFromFolder('story');
+    // 스토리/갤러리 이미지 자동 감지
+    const [storyImages, galleryImages] = await Promise.all([
+      loadImagesFromFolder('story'),
+      loadImagesFromFolder('gallery')
+    ]);
 
     // 감지된 이미지로 섹션 렌더링
     initStory(storyImages);
+    initGallery(galleryImages);
+
+    // 동적으로 추가된 요소에 스크롤 애니메이션 재등록
+    document.querySelectorAll('[data-animate]:not(.is-visible)').forEach(el => {
+      if (window._scrollObserver) window._scrollObserver.observe(el);
+    });
   }
 
   if (document.readyState === 'loading') {
