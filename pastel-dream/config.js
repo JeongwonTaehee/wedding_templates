@@ -17,30 +17,30 @@ const CONFIG = {
 
   // ── 메인 (히어로) ──
   groom: {
-    name: "신랑",
+    name: "김태희",
     nameEn: "Groom",
-    father: "아버지",
-    mother: "어머니",
+    father: "김병균",
+    mother: "신미자",
     fatherDeceased: false,
     motherDeceased: false
   },
 
   bride: {
-    name: "신부",
+    name: "문정원",
     nameEn: "Bride",
-    father: "아버지",
-    mother: "어머니",
+    father: "문정태",
+    mother: "김원주",
     fatherDeceased: false,
     motherDeceased: false
   },
 
   wedding: {
-    date: "2026-05-09",
-    time: "13:00",
-    venue: "예식장 이름",
-    hall: "그랜드홀 5층",
-    address: "서울특별시 강남구 테헤란로 123",
-    tel: "02-1234-5678"
+    date: "2026-12-12",
+    time: "15:00",
+    venue: "더화이트베일",
+    hall: "V홀 3층",
+    address: "서울특별시 서초구 서초동 1445-14",
+    tel: "02-3474-5000"
   },
 
   // ── 인사말 ──
@@ -57,8 +57,8 @@ const CONFIG = {
 
   // ── 오시는 길 ──
   mapLinks: {
-    kakao: "https://map.kakao.com/",
-    naver: "https://map.naver.com/"
+    kakao: "https://kko.to/dpZLeh87V2",
+    naver: "https://naver.me/G9URhCl3"
   },
 
   // ── 마음 전하실 곳 ──
@@ -77,7 +77,7 @@ const CONFIG = {
 
   // ── 링크 공유 시 나타나는 문구 ──
   meta: {
-    title: "신랑 ♥ 신부 결혼합니다",
-    description: "2026년 5월 9일, 소중한 분들을 초대합니다."
+    title: "김태희 ♥ 문정원 결혼합니다",
+    description: "2026년 12월 12일, 소중한 분들을 초대합니다."
   }
 };
